@@ -1,0 +1,252 @@
+/*------------------------------------------------------*/
+/*                      GLOBAL
+/*------------------------------------------------------*/
+
+html {
+    --main_turquoise: #5FF4D0;
+    --main_grey: #282828;
+
+    font-family: "Montserrat", sans-serif;
+    color:var(--main_grey);
+
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    width:100%;
+}
+
+section {
+    margin: 10vh 0 10vh 0;
+}
+
+section h2 {
+    font-size: 2em;
+    margin: 0;
+}
+
+section h3 {
+    font-size: 1.35em;
+    margin: 0;
+    color: var(--main_turquoise);
+}
+
+section .section_title, section .subsection_title {
+    margin-top: 5vh;
+    display: grid;
+    grid-template-columns: 10vw auto;
+}
+
+section .section_title::before {
+    content:'';
+    height: 0.75em;
+    width: calc(10vw + 0.3em);
+    background-color: var(--main_grey);
+    display: block;
+    position: relative;
+    top: 1.184em;
+}
+
+section .subsection_title::before {
+    content:'';
+    height: 0.45em;
+    width: calc(10vw + 0.2em);
+    background-color: var(--main_turquoise);
+    display: block;
+    position: relative;
+    top: 0.88em;
+}
+
+section #competence_title::before {
+    width: calc(10vw + 0.7em);
+}
+
+section #competences::after {
+    content:'';
+    display: block;
+    width: 0.46em;
+    height: 0.46em;
+    background-color: white;
+    position:relative;
+    border-radius: 100%;
+    bottom: 0.825em;
+    left: 0.19em;
+
+
+}
+
+/*------------------------------------------------------*/
+/*                      ASIDE
+/*------------------------------------------------------*/
+
+aside {
+    background-color: var(--main_grey);
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    padding: 2em;
+    width: max-content;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    justify-self: flex-start;
+
+}
+
+aside p {
+    font-size: 0.8em;
+}
+
+aside h2 {
+    margin:0;
+}
+
+aside h3 {
+    margin: 0.5em;
+}
+
+aside #job_status {
+    width: min-content;
+    text-align: center;
+    color:var(--main_turquoise)
+}
+
+aside h2::first-letter {
+    color:var(--main_turquoise);
+}
+
+/*------------------------------------------------------*/
+/*                      HEADER
+/*------------------------------------------------------*/
+
+header h1 {
+    margin: 0;
+    font-size: 3em;
+}
+
+header h1::first-letter {
+    color: var(--main_turquoise);
+}
+
+header {
+    display: grid;
+    grid-template-columns: 10vw 1fr 10fr;
+}
+
+header::before {
+    content:'';
+    height: 1em;
+    width: calc(10vw + 0.3em);
+    background-color: var(--main_turquoise);
+    display: block;
+
+    position: relative;
+    top: 0.797em;
+}
+
+header::after {
+    content:'';
+    height: 1em;
+    background-color: var(--main_grey);
+    display: block;
+    width: calc(100% + 0.3em);
+
+    position: relative;
+    left: -0.3em;
+    top:5.57em;
+}
+
+header #title {
+    width: min-content;
+}
+
+header h1 {
+    width: min-content;
+}
+
+/*------------------------------------------------------*/
+/*                      PRESENTATION
+/*------------------------------------------------------*/
+
+#presentation_image {
+    position: relative;
+}
+
+#presentation_image #background_image {
+    height: 400px;
+    display: block;
+    background-image: url("background-image.jpg");
+    background-size: cover;
+    filter: grayscale(100%) brightness(50%);
+}
+
+#presentation_image p {
+    color:white;
+    position: absolute;
+    top: 30%;
+    text-align: center;
+}
+
+/*------------------------------------------------------*/
+/*                      PARCOURS
+/*------------------------------------------------------*/
+
+.chronological_frise {
+    width: 100%;
+    margin: 10vh 0 5vh 5vw;
+}
+
+.formation_points_flex {
+    display: flex;
+    flex-direction: row;
+    max-width: 60vw;
+    justify-content: space-between;
+}
+
+/*--------------------FORMATION --------------------*/
+
+.formation_line {
+    display: block;
+    height: 5px;
+    width: 70vw;
+    background-color: #282828;
+}
+
+.formation_circle {
+    display: block;
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border: solid 5px var(--main_grey);
+    border-radius: 50%;
+
+    position:relative;
+    bottom: 17.5px;
+}
+
+.formation_circle::after {
+    content:'';
+    display: block;
+    height: 15px;
+    width: 15px;
+    background-color: var(--main_turquoise);
+    border-radius: 50%;
+    position: relative;
+    top: 2.5px;
+    left: 2.5px;
+}
+
+.formation_date {
+    margin: 0;
+    width: 8vw;
+    text-align: center;
+    position: relative;
+    right: calc(2vw + 10px);
+}
