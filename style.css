@@ -15,8 +15,10 @@ html {
 
 body {
     margin: 0;
-    display: flex;
+    display: grid;
     width:100%;
+    grid-template-columns: auto auto;
+    overflow-x: hidden;
 }
 
 section {
@@ -74,8 +76,6 @@ section #competences::after {
     border-radius: 100%;
     bottom: 0.825em;
     left: 0.19em;
-
-
 }
 
 /*------------------------------------------------------*/
@@ -86,18 +86,36 @@ aside {
     background-color: var(--main_grey);
     color: rgb(255, 255, 255);
     display: flex;
+    flex-direction: row;
+
+    height: 100vh;
+    padding: 2em 2em 2em 0.5em;
+    width: max-content;
+    position: sticky;
+    top: 0;
+    left: 80%;
+    align-self: flex-start;
+    align-items: center;
+}
+
+
+#aside_left {
+    cursor: default;
+    margin-right: 1em;
+}
+
+#aside_left:hover {
+    color: var(--main_turquoise);
+}
+
+#aside_right {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
     height: 100vh;
-    padding: 2em;
     width: max-content;
-    position: sticky;
-    top: 0;
-    align-self: flex-start;
-    justify-self: flex-start;
-
 }
 
 aside p {
@@ -138,6 +156,7 @@ header h1::first-letter {
 header {
     display: grid;
     grid-template-columns: 10vw 1fr 10fr;
+    margin-top: 5vh;
 }
 
 header::before {
@@ -198,40 +217,98 @@ header h1 {
 /*                      PARCOURS
 /*------------------------------------------------------*/
 
-.chronological_frise {
-    width: 100%;
-    margin: 10vh 0 5vh 5vw;
+.timeline {
+    width: 80%;
+    height: 6.5em;
+    margin: 5vh auto 5vh auto;
+
 }
 
-.formation_points_flex {
+.timeline_points_flex {
     display: flex;
     flex-direction: row;
-    max-width: 60vw;
+    max-width: 90%;
     justify-content: space-between;
+    height: 6.5em;
+    position: relative;
+
 }
 
 /*--------------------FORMATION --------------------*/
 
-.formation_line {
-    display: block;
-    height: 5px;
-    width: 70vw;
-    background-color: #282828;
+.timeline_start {
+    display: inline-block;   
+    height: 10px;
+    width: 10px;
+    background-color: var(--main_grey);
+    border-radius: 50%;
+    position: absolute;
+    right: calc(2% - 1vw);
+    top: calc(50% - 5px);
+    
 }
 
-.formation_circle {
+.timeline_end {
+    content:'';
+    display: inline-block;
+ 
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 15px solid var(--main_grey);
+    border-radius: 10%;
+    position: absolute;
+    left: 0;
+    top: calc(50% - 10px);
+}
+
+
+.timeline_point {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    position: relative;
+    padding:2%;
+}
+
+.timeline_startend {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 0%;
+    height: 100%;
+    justify-content: space-between;
+    position: relative;
+    padding: 2%;
+}
+
+.timeline_point::after {
+    content:'';
+    display: block;
+    height: 5px;
+    background-color: #282828;
+    min-width: 6.5em;
+    width:100%;
+    z-index: 1;
+    position:absolute;
+    top: calc(50% - 2.5px);
+}
+
+.timeline_circle {
     display: block;
     height: 20px;
     width: 20px;
     background-color: white;
     border: solid 5px var(--main_grey);
     border-radius: 50%;
-
-    position:relative;
-    bottom: 17.5px;
+    z-index: 10;
+    position: absolute;
+    top: calc(50% - 15px);
 }
 
-.formation_circle::after {
+.timeline_circle::after {
     content:'';
     display: block;
     height: 15px;
@@ -243,10 +320,16 @@ header h1 {
     left: 2.5px;
 }
 
-.formation_date {
+.timeline_date, .timeline_event {
     margin: 0;
-    width: 8vw;
+    width: fit-content;
+    height:max-content;
     text-align: center;
-    position: relative;
-    right: calc(2vw + 10px);
 }
+
+
+@media only screen and (max-width: 800px) {
+    aside {
+        display: none;
+    }
+  }
