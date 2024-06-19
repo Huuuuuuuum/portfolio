@@ -89,7 +89,7 @@ aside {
     flex-direction: row;
 
     height: 100vh;
-    padding: 2em 2em 2em 0.5em;
+    padding: 0 2em 0 0.5em;
     width: max-content;
     position: sticky;
     top: 0;
@@ -126,8 +126,12 @@ aside h2 {
     margin:0;
 }
 
-aside h3 {
+aside a {
     margin: 0.5em;
+    font-size: large;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 aside #job_status {
@@ -243,7 +247,7 @@ header h1 {
     background-color: var(--main_grey);
     border-radius: 50%;
     position: absolute;
-    right: calc(2% - 1vw);
+    right: -5px;
     top: calc(50% - 5px);
     
 }
@@ -326,6 +330,66 @@ header h1 {
     height:max-content;
     text-align: center;
 }
+
+/*--------------------FORMATION --------------------*/
+
+
+.timeline_reverse .timeline_point::after, .timeline_reverse .timeline_start {
+    background-color: var(--main_turquoise);
+}
+
+.timeline_reverse .timeline_circle {
+    border: solid 5px var(--main_turquoise);
+}
+
+
+.timeline_reverse .timeline_circle::after {
+    background-color: var(--main_grey);
+}
+
+.timeline_reverse .timeline_end {
+    border-left: 15px solid var(--main_turquoise);
+}
+
+/*------------------------------------------------------*/
+/*                    COMPETENCES : 0
+/*------------------------------------------------------*/
+
+
+.competence_container {
+    display: flex;
+    width:100%;
+    margin: auto;
+    justify-content: space-around;
+}
+
+.competence_circles{
+   display: grid;
+   grid-template-columns: auto auto;
+   grid-template-rows: auto auto ;
+   width: max-content;
+
+}
+
+.competence_circle {
+    display: block;
+    margin: auto;
+    height: 5em;
+    width: 5em;
+    border-radius: 50%;
+    background-color: var(--main_turquoise);
+    box-shadow: 5px 5px 5px lightgrey;
+
+}
+
+
+.competence_circles_first {
+    grid-column: span 2;
+}
+
+/*------------------------------------------------------*/
+/*                  RESPONSIVE LMAO
+/*------------------------------------------------------*/
 
 
 @media only screen and (max-width: 800px) {
