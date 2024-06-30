@@ -228,8 +228,9 @@ header h1 {
 #presentation_image p {
     color:white;
     position: absolute;
-    top: 30%;
+    top: 40%;
     text-align: center;
+    margin: 0 5vw 0 5vw;
 }
 
 /*------------------------------------------------------*/
@@ -265,11 +266,12 @@ header h1 {
 
 .timeline_start {
     display: inline-block;   
+    position:absolute;
     height: 10px;
     width: 10px;
     background-color: var(--main_grey);
     border-radius: 50%;
-    top: calc(50% - 5px);   
+    left: -5px;
 }
 
 .timeline_end {
@@ -281,8 +283,7 @@ header h1 {
     border-left: 15px solid var(--main_grey);
     border-radius: 10%;
     position: absolute;
-    left: 0;
-    top: calc(50% - 10px);
+    right: -10px;
 }
 
 .timeline_circle {
@@ -308,6 +309,11 @@ header h1 {
 
 .timeline_circle:hover p {
     color: var(--main_turquoise);
+}
+
+.timeline_circle:hover .timeline_description {
+    visibility: visible;
+    opacity: 1;
 }
 
 .timeline_line::after {
@@ -341,6 +347,26 @@ header h1 {
     text-align: center;
 }
 
+
+.timeline_description {
+    position:absolute;
+    width: 20vw;
+    text-align: center;
+    background-color: rgba(128, 128, 128, 0.955);
+    border-radius: 20px;
+    padding: 1em;
+
+    top: 20px;
+    left: -10vw;
+    font-size: 80%;
+    text-align:center;
+    visibility: hidden;
+
+    opacity: 0;
+    transition: opacity 0.2s linear;
+    color: white;
+}
+
 /*
 .timeline_reverse .timeline_point::after, .timeline_reverse .timeline_start {
     background-color: var(--main_turquoise);
@@ -371,6 +397,7 @@ header h1 {
     justify-content: space-around;
     margin-top: 5vh;
     align-items: center;
+    gap: 3vw;
 }
 
 .competences_circles_container {
@@ -414,23 +441,22 @@ header h1 {
 }
 
 
-.competence_circle:nth-child(1) {
+.competences_circles .competence_circle:nth-child(1) {
     grid-column: span 2;
+    
+}
+.circle_data {
     color: white;
     background-color: var(--main_turquoise);
 }
 
-.competence_circle:nth-child(2) {
+.circle_dev {
     background-color: var(--semi_light_grey);
 }
 
-.competence_circle:nth-child(3) {
+.circle_teamwork {
     background-color: var(--light_grey);
 }
-
-
-
-
 
 
 
@@ -492,19 +518,29 @@ header h1 {
     width:fit-content;
     height: fit-content;
     display:flex;
-    margin:auto;
+    margin:5vh auto auto auto;
     align-items: center;
     gap: 2vw;
 }
 
 
 .slider_arrow {
-    background-color: var(--light_grey);
+    background-color: var(--semi_light_grey);
     position: relative;
     border-radius: 50%;
     height: 35px;
     width: 35px;
     flex-shrink: 0;
+    text-align: center;
+    align-content: center;
+    font-weight: bold;
+    color:white;
+    transition: 0.3s ease-in-out;
+    cursor:default;
+}
+
+.slider_arrow:hover {
+    filter: brightness(110%);
 }
 
 .slider_images {
@@ -519,7 +555,6 @@ header h1 {
 }
 
 .slider_image {
-    height: 100%;
     width:60vw;
     flex-shrink: 0;
     position:relative;
@@ -528,8 +563,8 @@ header h1 {
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    gap: 2vh;
 }
 
 
@@ -543,11 +578,26 @@ header h1 {
 
 
 .project_image {
-    background-color :#00ffea;
     height: 30vh;
-    border: 1px solid;
+    box-shadow: 2px 2px 2px var(--semi_light_grey);
 }
 
+.project_competences {
+    display:flex;
+    gap: 0.5vw;
+}
+
+.project_competences .competence_circle {
+    height:60px;
+    width: 60px;
+    font-size: 60%;
+    margin-bottom: 4px;
+}
+
+.project_description {
+    max-width: 40vw;
+    text-align: justify;
+}
 
 
 

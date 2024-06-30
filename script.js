@@ -58,6 +58,7 @@ var aside_retract = document.getElementById("aside_left");
 var main = document.getElementsByTagName("MAIN")[0];
 var aside_retracted = false;
 
+
 /*----Compétences----*/
 var description = document.getElementsByClassName("competences_descriptions")[0];
 var circles = document.getElementsByClassName("competence_circle");
@@ -76,35 +77,41 @@ let slider_images = document.getElementsByClassName("slider_image");
 aside_retract.addEventListener("click", (event)=>{
     if (aside_retracted) {
         aside_retracted = false;
+        aside_retract.innerHTML=">"
         main.style.width = "100%";
     }
     else {
         aside_retracted = true;
+        aside_retract.innerHTML="<"
         main.style.width = "calc(100vw - 2em)";
     }
    
 })
 
 for (let circle of circles) {
-    circle.addEventListener("click", (event)=>{
-        if (circle_selected != null) {
-            circle_selected.classList.toggle("competence_circle_selected");
-        }
-        if (circle_selected == event.target || circle_selected == event.target.parentElement) {
-            circle_selected = null;
-        }
-        else{
-            if (event.target.classList.contains("competence_circle")) {
-                circle_selected = event.target;
+    console.log(circle.id);
+    if (circle.id != "") {
+        circle.addEventListener("click", (event)=>{
+            if (circle_selected != null) {
+                circle_selected.classList.toggle("competence_circle_selected");
             }
-            else {
-                circle_selected = event.target.parentElement;
+            if (circle_selected == event.target || circle_selected == event.target.parentElement) {
+                circle_selected = null;
             }
-            circle_selected.classList.toggle("competence_circle_selected")
-            competence_description();
-        }  
-    
-    })
+            else{
+                if (event.target.classList.contains("competence_circle")) {
+                    circle_selected = event.target;
+                }
+                else {
+                    circle_selected = event.target.parentElement;
+                }
+                circle_selected.classList.toggle("competence_circle_selected")
+                competence_description();
+            }  
+        
+        })
+    }
+   
 }
 
 left_arrow.addEventListener("click", slide);
