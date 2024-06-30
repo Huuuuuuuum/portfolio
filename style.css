@@ -3,20 +3,25 @@
 /*------------------------------------------------------*/
 
 html {
-    --main_turquoise: #5FF4D0;
+    --main_turquoise: #00cdb1;
     --main_grey: #282828;
+    --light_grey: #D9D9D9;
+    --semi_light_grey : #939393;
 
     font-family: "Montserrat", sans-serif;
     color:var(--main_grey);
 
     height: 100%;
     width: 100%;
+    font-size: 1em;
+
+    scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
     display: grid;
-    width:100%;
+    width:100vw;
     grid-template-columns: auto auto;
     overflow-x: hidden;
 }
@@ -78,6 +83,10 @@ section #competences::after {
     left: 0.19em;
 }
 
+main {
+    transition: 0.2s ease-in-out;
+}
+
 /*------------------------------------------------------*/
 /*                      ASIDE
 /*------------------------------------------------------*/
@@ -120,6 +129,7 @@ aside {
 
 aside p {
     font-size: 0.8em;
+    transition: 0.5s ease-in-out;
 }
 
 aside h2 {
@@ -132,6 +142,11 @@ aside a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    transition: 0.5s ease-in-out;
+}
+
+aside a:hover, aside p:hover {
+    color: var(--main_turquoise);
 }
 
 aside #job_status {
@@ -221,24 +236,32 @@ header h1 {
 /*                      PARCOURS
 /*------------------------------------------------------*/
 
+
 .timeline {
-    width: 80%;
-    height: 6.5em;
-    margin: 5vh auto 5vh auto;
-
-}
-
-.timeline_points_flex {
     display: flex;
-    flex-direction: row;
-    max-width: 90%;
-    justify-content: space-between;
-    height: 6.5em;
+    flex-direction: column;
+    max-width: 80%;
     position: relative;
-
+    margin: auto;
 }
 
-/*--------------------FORMATION --------------------*/
+.timeline p {
+    display: block;
+    width:100%;
+    text-align: center;
+}
+
+.timeline_events, .timeline_line, .timeline_dates {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly ;
+    align-items: center;
+    height: max-content;
+}
+
+.timeline_line {
+    height:25px;
+}
 
 .timeline_start {
     display: inline-block;   
@@ -246,10 +269,7 @@ header h1 {
     width: 10px;
     background-color: var(--main_grey);
     border-radius: 50%;
-    position: absolute;
-    right: -5px;
-    top: calc(50% - 5px);
-    
+    top: calc(50% - 5px);   
 }
 
 .timeline_end {
@@ -265,41 +285,6 @@ header h1 {
     top: calc(50% - 10px);
 }
 
-
-.timeline_point {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    justify-content: space-between;
-    position: relative;
-    padding:2%;
-}
-
-.timeline_startend {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 0%;
-    height: 100%;
-    justify-content: space-between;
-    position: relative;
-    padding: 2%;
-}
-
-.timeline_point::after {
-    content:'';
-    display: block;
-    height: 5px;
-    background-color: #282828;
-    min-width: 6.5em;
-    width:100%;
-    z-index: 1;
-    position:absolute;
-    top: calc(50% - 2.5px);
-}
-
 .timeline_circle {
     display: block;
     height: 20px;
@@ -308,8 +293,32 @@ header h1 {
     border: solid 5px var(--main_grey);
     border-radius: 50%;
     z-index: 10;
-    position: absolute;
-    top: calc(50% - 15px);
+    margin: auto;
+    position: relative;
+    transition: 0.2s ease-in-out;    
+}
+
+
+.timeline_circle:hover::after {
+    height: 20px;
+    width: 20px;
+    top: 0;
+    left: 0;
+}
+
+.timeline_circle:hover p {
+    color: var(--main_turquoise);
+}
+
+.timeline_line::after {
+    content:'';
+    display: block;
+    height: 5px;
+    background-color: #282828;
+    min-width: 6.5em;
+    width:100%;
+    z-index: 1;
+    position:absolute;
 }
 
 .timeline_circle::after {
@@ -322,6 +331,7 @@ header h1 {
     position: relative;
     top: 2.5px;
     left: 2.5px;
+    transition: 0.2s ease-in-out;
 }
 
 .timeline_date, .timeline_event {
@@ -331,9 +341,7 @@ header h1 {
     text-align: center;
 }
 
-/*--------------------FORMATION --------------------*/
-
-
+/*
 .timeline_reverse .timeline_point::after, .timeline_reverse .timeline_start {
     background-color: var(--main_turquoise);
 }
@@ -350,42 +358,198 @@ header h1 {
 .timeline_reverse .timeline_end {
     border-left: 15px solid var(--main_turquoise);
 }
-
+*/
 /*------------------------------------------------------*/
 /*                    COMPETENCES : 0
 /*------------------------------------------------------*/
 
-
-.competence_container {
+.competences_flex {
     display: flex;
-    width:100%;
+    height:min-content;
+    width: 95%;
     margin: auto;
     justify-content: space-around;
+    margin-top: 5vh;
+    align-items: center;
 }
 
-.competence_circles{
-   display: grid;
-   grid-template-columns: auto auto;
-   grid-template-rows: auto auto ;
-   width: max-content;
+.competences_circles_container {
+    height: 255px;
+    width: 255px;
+}
 
+.competences_circles {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    height: 200px;
+    width: 205px;
+    justify-items: center;
+    column-gap: 5px;
 }
 
 .competence_circle {
-    display: block;
-    margin: auto;
-    height: 5em;
-    width: 5em;
-    border-radius: 50%;
-    background-color: var(--main_turquoise);
-    box-shadow: 5px 5px 5px lightgrey;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;;
+    text-align: center;
+    align-content: center ;
+    color: var(--main_turquoise);
+    font-weight:bold;
+    transition: 0.35s ease-in-out;
+    box-shadow: 0px 4px 2px rgb(202, 202, 202);
+    font-size: 70%;
+    cursor:default;
+}
+
+.competence_circle:hover {
+    filter: brightness(110%);
+}
+
+.competence_circle_selected {
+    height: 150px;
+    width: 150px;
+    font-size: 85%;
 
 }
 
 
-.competence_circles_first {
+.competence_circle:nth-child(1) {
     grid-column: span 2;
+    color: white;
+    background-color: var(--main_turquoise);
 }
+
+.competence_circle:nth-child(2) {
+    background-color: var(--semi_light_grey);
+}
+
+.competence_circle:nth-child(3) {
+    background-color: var(--light_grey);
+}
+
+
+
+
+
+
+
+
+
+.competences_descriptions_container {
+    width: 60%;
+}
+
+
+
+.competences_list {
+    display: grid;
+    column-gap: 1em;
+    width: calc(100% - 3em);
+    grid-template-columns: auto auto auto auto;
+    word-wrap: break-word;
+
+}
+
+.competences_level {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    flex-wrap: wrap;
+}
+
+.competences_level p {
+    display: inline-block;
+    margin:0;
+}
+
+.competences_levels_circle {
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+    border-radius: 50%;
+}
+
+.competences_level #level_1 {
+    background-color:#2e3938;
+}
+.competences_level  #level_2 {
+    background-color:#357671;
+}
+.competences_level  #level_3 {
+    background-color: #76cec7;
+}
+.competences_level  #level_4 {
+    background-color: #00ffea;
+}
+
+
+/*------------------------------------------------------*/
+/*                  PROJECTS SLIDER
+/*------------------------------------------------------*/
+
+.slider {
+    width:fit-content;
+    height: fit-content;
+    display:flex;
+    margin:auto;
+    align-items: center;
+    gap: 2vw;
+}
+
+
+.slider_arrow {
+    background-color: var(--light_grey);
+    position: relative;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    flex-shrink: 0;
+}
+
+.slider_images {
+    position: relative;
+    height:fit-content;
+    width:60vw;
+    display: flex;
+    flex-direction: row;
+    overflow:hidden;
+    transition: 0.5s ease-in-out;
+
+}
+
+.slider_image {
+    height: 100%;
+    width:60vw;
+    flex-shrink: 0;
+    position:relative;
+    left: 0vw;
+    transition: 0.5s ease-in-out;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.slider_image p {
+    margin:0;
+}
+
+
+
+
+
+.project_image {
+    background-color :#00ffea;
+    height: 30vh;
+    border: 1px solid;
+}
+
+
+
 
 /*------------------------------------------------------*/
 /*                  RESPONSIVE LMAO
@@ -397,3 +561,30 @@ header h1 {
         display: none;
     }
   }
+
+
+@media only screen and (max-width: 600px) {
+    .competences_flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 5vh;
+    }
+
+    .competences_list {
+        grid-template-columns: auto auto;
+    }
+
+    .competences_level {
+        flex-direction: column;
+        align-content: left;
+    }
+
+
+}
+
+@media only screen and (max-width: 400px) {
+    html {
+        font: 0.7em;
+    }
+
+}

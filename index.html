@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>G.EMA - Portfolio</title>
+        <title>G.E - Portfolio</title>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -30,108 +31,121 @@
                     <div class="section_title">
                         <h2>Parcours</h2>
                     </div>
-                    <div>
-                        <div class="subsection_title">
-                            <h3>Formation</h3>
-                        </div>
-
-                        <div class="timeline" id="parcours_timeline">
-                            <div class="timeline_points_flex">
-                                <div class="timeline_startend">
-                                    <div class="timeline_start"></div>
-                                </div>
-                                <div class="timeline_point">
-                                    <p class="timeline_event">
-                                        Baccalauréat
-                                    </p>
-                                    <div class="timeline_circle"></div>
-                                    <p class="timeline_date">
-                                        2022
-                                    </p>
-                                </div>
-                                <div class="timeline_point">
-                                    <p class="timeline_event">
-                                        BUT Informatique - En cours
-                                    </p>
-                                    <div class="timeline_circle"></div>
-                                    <p class="timeline_date">
-                                        2022 - 2024
-                                    </p>
-                                </div>
-                                <div class="timeline_startend">
-                                    <div class="timeline_end"></div>
-                                </div>
-                            </div>
-                        </div>
-
+                    <div class="subsection_title">
+                        <h3>Formation</h3>
                     </div>
-                    <div>
+
+                    <div class="timeline" id="parcours_timeline">
+                        <div class="timeline_events">
+                            <p>Baccalauréat</p>
+                            <p>BUT Informatique - En cours</p>
+                        </div>
+                        <div class="timeline_line">
+                            <div class="timeline_circle"></div>
+                            <div class="timeline_circle"></div>
+                        </div>
+                        <div class="timeline_dates">
+                            <p>2022</p>
+                            <p>2022 - 2024</p>
+                        </div>    
+                    </div>
+                             
+
                         <div class="subsection_title">
                             <h3>Expériences</h3>
                         </div>
 
-                        <div class="timeline" id="parcours_timeline">
-                            <div class="timeline_points_flex timeline_reverse">
-                                <div class="timeline_startend">
-                                    <div class="timeline_start"></div>
-                                </div>
-                                <div class="timeline_point">
-                                    <p class="timeline_event">
-                                        Stage Wanadev
-                                    </p>
-                                    <div class="timeline_circle"></div>
-                                    <p class="timeline_date">
-                                        2019
-                                    </p>
-                                </div>
-                                <div class="timeline_point">
-                                    <p class="timeline_event">
-                                        Bureau des Etudiants
-                                    </p>
-                                    <div class="timeline_circle"></div>
-                                    <p class="timeline_date">
-                                        2023 - 2024
-                                    </p>
-                                </div>
-                                <div class="timeline_point">
-                                    <p class="timeline_event">
-                                        Stage Liris Qualitop
-                                    </p>
-                                    <div class="timeline_circle"></div>
-                                    <p class="timeline_date">
-                                        2024
-                                    </p>
-                                </div>
-
-                                <div class="timeline_startend">
-                                    <div class="timeline_end"></div>
-                                </div>
+                        <div class="timeline timeline_reverse" id="parcours_timeline">
+                            <div class="timeline_events">
+                                <p>Stage Wanadev</p>
+                                <p>Bureau des Etudiants</p>
+                                <p>Stage Liris Qualitop</p>
+                            </div>
+                            <div class="timeline_line">
+                                <div class="timeline_circle"></div>
+                                <div class="timeline_circle"></div>
+                                <div class="timeline_circle"></div>
+                            </div>
+                            <div class="timeline_dates">
+                                <p>2019</p>
+                                <p>2023 - 2024</p>
+                                <p>2024</p>
                             </div>
                         </div>
-
-                    </div>
             </section>
 
-            <section id="competences" class="Compétences">
-                <div class="section_title" id="competence_title">
-                    <h2 id="competences">Compétences</h2>
-                    <div class="competence_container">
-                        <div class="competence_circles">
-                            <div class="competence_circle competence_circles_first">2</div>
-                            <div class="competence_circle">2</div>
-                            <div class="competence_circle">2</div> 
-                        </div>
-                        <div class="competence_description">YOOOO</div>
-                    </div>
+            <section id="competences" class="Competences">
+                <div class="section_title">
+                    <h2 id="competence_title">Compétences</h2>
                 </div>
-                
-
-            </section>
+                <div class="competences_flex">
+                    <div class="competences_circles_container">
+                        <div class="competences_circles">
+                            <div id="data" class="competence_circle competence_circle_selected"><p>Données</p></div>
+                            <div id="dev" class="competence_circle"><p>Développement</p></div>
+                            <div id="project" class="competence_circle"><p>Projet et travail d'équipe</p></div>
+                        </div>
+                    </div>
+                    <div class="competences_descriptions_container">
+                        <div class="competences_descriptions"></div>
+                        <div class="competences_level">
+                            <div>
+                                <div id="level_1" class="competences_levels_circle"></div>
+                                <p>Notions</p>
+                            </div>
+                            <div>
+                                <div id="level_2" class="competences_levels_circle"></div>
+                                <p>Apprentissage</p>
+                            </div>
+                            <div>
+                                <div id="level_3" class="competences_levels_circle"></div>
+                                <p>Acquis</p>
+                            </div>
+                            <div>
+                                <div id="level_4" class="competences_levels_circle"></div>
+                                <p>Maîtrise</p>
+                            </div>
+                        </div>         
+                    </div>
+                              
+                </div>
+            </section>  
 
             <section id="projets" class="Projets">
                 <div class="section_title">
                     <h2>Projets</h2>
                 </div>
+
+                <div class="projects_slider">
+                    <div class="slider">
+                        <div id="left_arrow" class="slider_arrow"><</div>
+                        <div class="slider_images">
+                            <div id="projet_sae_1" class="slider_image">
+                                <img class="project_image" src="" alt="java_app_img">
+                                <p class="project_date">2023</p>
+                                <p class="project_description">Projet de Java IHM</p>
+                            </div>
+                            <div id="image_2" class="slider_image">
+                                <img class="project_image" src="" alt="powerbi_img">
+                                <p class="project_date">2023</p>
+                                <p class="project_description">Projet power bi à partir de cahcier des charges fonctionnels</p>
+                            </div>
+                            <div id="image_2" class="slider_image">
+                                <img class="project_image" src="" alt="everlong_img">
+                                <p class="project_date">2023-2024</p>
+                                <p class="project_description">Everlong projet site web php javascript html css dave grhol et marina</p>
+                            </div>
+                            <div id="image_3" class="slider_image">
+                                <img class="project_image" src="" alt="qualitop_img">
+                                <p class="project_date">2024</p>
+                                <p class="project_description">PProjet Qualitop ouaip</p>
+                            </div>                           
+
+                        </div>
+                        <div id="right_arrow" class="slider_arrow">></div>
+                    </div>
+                </div>
+
             </section>  
 
         </main>
@@ -140,7 +154,7 @@
         
         <aside>
             <div id="aside_left">
-                O
+                >
             </div>
             <div id="aside_right">
                 <img></img>
